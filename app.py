@@ -95,6 +95,9 @@ def submit():
     # Start file processing
     not_found_files, failed_copies, execution_time = process_files(excel_url, video_folder_url, final_folder)
 
+    # Format execution time to two decimal places
+    execution_time = f"{execution_time:.2f}"
+
     return render_template('results.html', 
                            not_found_files=not_found_files, 
                            failed_copies=failed_copies, 

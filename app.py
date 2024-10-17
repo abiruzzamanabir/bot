@@ -101,5 +101,7 @@ def get_progress():
     return jsonify(progress)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.2', port=8000, debug=True)
+    host = os.getenv('FLASK_HOST', '127.0.0.1')  # Default to localhost if not set
+    port = int(os.getenv('FLASK_PORT', 5000))    # Default to port 5000 if not set
+    app.run(host=host, port=port, debug=True)
 
